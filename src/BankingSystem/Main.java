@@ -1,21 +1,23 @@
 package BankingSystem;
+import java.util.Random;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("WELCOME TO BANKING SYSTEM");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name");
-        String name = sc.next();
+        String name = sc.nextLine();
         System.out.println("Enter you password !!");
         String password = sc.next();
         System.out.println("Enter the initial balance you want to add ");
         int initialBalance = sc.nextInt();
-
+        int accountNo = generateRandomAccountNumber();
         Bank bankAc = new NoBank(name,password,initialBalance);
 
-        System.out.println("Your Bank account has been created !!");
 
+        System.out.println("Your Bank account has been created !!");
+        System.out.println("Your Account Number is :  " + accountNo);
         System.out.println("Enter the money you want to add ");
 
         int money = sc.nextInt();
@@ -51,5 +53,10 @@ public class Main {
 //        bank.withdrawMoney("123",10);
 //        bank.getRateOfInterest(10);
 
+    }
+    private static int generateRandomAccountNumber() {
+        Random random = new Random();
+        // Generate a random 6-digit account number
+        return 100000 + random.nextInt(900000);
     }
 }

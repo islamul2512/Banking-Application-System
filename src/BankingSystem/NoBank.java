@@ -1,5 +1,7 @@
 package BankingSystem;
 
+import java.util.Random;
+
 public class NoBank implements Bank{
     public int accountNo;
 
@@ -13,12 +15,20 @@ public class NoBank implements Bank{
 
     public static final double rateOfInterest = 8.5;
     public NoBank(String accountName, String secretCode, double balance) {
+
         //Account no : generate a random and store it
+       // this.accountNo = generateAccountNumber();
         this.accountName = accountName;
         this.secretCode = secretCode;
         this.balance = balance;
         minBalance = 5000.0;
     }
+//    private int generateAccountNumber() {
+//        Random random = new Random();
+//        // Generate a random integer within a specific range for the account number
+//        // Change the range according to the desired length or constraints of the account number
+//        return 100000 + random.nextInt(900000); // Example: 6-digit account number
+//    }
 
     public String addMoney(int money) {
         balance = balance+money;
